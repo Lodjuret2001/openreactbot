@@ -1,0 +1,24 @@
+{
+  "name": "openreactbot",
+  "version": "1.0.0",
+  "description": "OpenAI chatbot for react library",
+  "main": "dist/index.js",
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lodjuret2001/openreactbot.git"
+  },
+  "keywords": [
+    "openreactbot"
+  ],
+  "author": "Pontus Norup (minecraftpontus@gmail.com)",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}
