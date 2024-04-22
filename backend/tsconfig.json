@@ -1,0 +1,21 @@
+{
+  "ts-node": {
+    "esm": true,
+    "typeCheck": true
+  },
+  "compilerOptions": {
+    "typeRoots": ["node_modules/@types"],
+    "types": ["node", "cors", "express"],
+    "module": "Node16",
+    "target": "ES2022",
+    "outDir": "./dist",
+    "removeComments": true,
+
+    "strict": true,
+    "skipLibCheck": true,
+    "moduleResolution": "Node16",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
