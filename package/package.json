@@ -2,11 +2,10 @@
   "name": "openreactbot",
   "version": "1.0.0",
   "description": "OpenAI chatbot for react library",
-  "main": "dist/index.js",
+  "main": "dist/ChatBot.jsx",
   "type": "module",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "jest",
     "build": "tsc"
   },
   "repository": {
