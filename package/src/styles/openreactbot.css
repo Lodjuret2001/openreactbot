@@ -1,0 +1,73 @@
+/*--Chat interface background--*/
+.cs-main-container,
+.cs-chat-container,
+.cs-message-list {
+  background-color: #eeeeee;
+}
+
+.cs-main-container {
+  border: 3px solid #9331b2;
+  border-radius: 10px;
+}
+
+/*--Close button--*/
+.orb-close--chatbot {
+  color: black;
+}
+
+/*--ChatBot message background--*/
+.cs-message--incoming .cs-message__content {
+  background-color: #b4e9f1;
+}
+
+/*--User message background--*/
+.cs-message--outgoing .cs-message__content {
+  background-color: #9331b2;
+  color: white;
+}
+
+/*--Input container background--*/
+.cs-chat-container .cs-message-input {
+  background-color: #5972a5;
+  border: none;
+}
+
+/*--Input background--*/
+.cs-message-input__content-editor,
+.cs-message-input__content-editor-wrapper {
+  background-color: #81d8e7;
+  color: black;
+}
+
+/*--Input placeholder--*/
+.cs-message-input__content-editor[data-placeholder]:empty:before {
+  color: black;
+}
+
+/*--Send icon--*/
+.cs-button--send {
+  color: #81d8e7;
+}
+
+.cs-message-list__typing-indicator-container {
+  background-color: #b4e9f1;
+  color: black;
+}
+
+/*--Typing animation dots--*/
+.cs-typing-indicator__dot {
+  background-color: #9331b2;
+  color: #0b1516;
+}
+
+/*--Scrollbar background container (OnClick)--*/
+.ps .ps__rail-y.ps--clicking {
+  background-color: #eeeeee;
+}
+
+/*--Scrollbar--*/
+.ps__thumb-y,
+.ps__rail-y.ps--clicking .ps__thumb-y {
+  width: 7px;
+  background-color: #0b1516;
+}

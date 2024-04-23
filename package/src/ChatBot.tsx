@@ -1,11 +1,14 @@
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
+import "../src/styles/openreactbot.css";
 import { useState } from "react";
 import useOpenAI from "./hooks/useOpenAI.js";
 import applyDefaultValueTo from "./utils/applyDefaultValuesTo.js";
 import { ChatBotProps, ChatBotMessage } from "./types/chatBotTypes.js";
 import ChatBotContainer from "./components/ChatBotContainer.js";
+import CloseChatBot from "./components/CloseChatBot.js";
 import LogoButton from "./components/LogoButton.js";
 import {
+  Avatar,
   MainContainer,
   ChatContainer,
   MessageList,
@@ -13,18 +16,20 @@ import {
   Message,
   TypingIndicator,
 } from "@chatscope/chat-ui-kit-react";
-import CloseChatBot from "./components/CloseChatBot.js";
 
 const ChatBot = ({ configs }: ChatBotProps) => {
   const [isOpen, setIsOpen] = useState(false);
-
   const { API_KEY, config, stylesConfig } = configs;
-  const styles = applyDefaultValueTo(stylesConfig);
 
-  const { chatBotMessages, setChatbotMessages, isTyping, setInput } = useOpenAI(
-    API_KEY,
-    config
-  );
+  const {
+    chatBotMessages,
+    setChatbotMessages,
+    isTyping,
+    setInput,
+    setIsInitilalized,
+  } = useOpenAI(API_KEY, config);
+
+  const styles = applyDefaultValueTo(stylesConfig);
 
   const handleSetIsOpen = () => {
     setIsOpen(!isOpen);
@@ -33,6 +38,7 @@ const ChatBot = ({ configs }: ChatBotProps) => {
   const handleSend = (message: string) => {
     const newMessage: ChatBotMessage = { role: "user", content: message };
     setChatbotMessages([...chatBotMessages, newMessage]);
+    setIsInitilalized(true);
     setInput(newMessage);
   };
 
@@ -48,21 +54,31 @@ const ChatBot = ({ configs }: ChatBotProps) => {
                 typingIndicator={
                   isTyping ? (
                     <TypingIndicator content={`${styles.name} is typing...`} />
-                  ) : null
+                  ) : undefined
                 }
               >
                 {chatBotMessages.map((chat, i) => {
                   return (
-                    <Message
-                      key={i}
-                      model={{
-                        message: chat.content,
-                        sender: chat.role as string,
-                        position: "normal",
-                        direction:
-                          chat.role === "assistant" ? "incoming" : "outgoing",
-                      }}
-                    />
+                      <Message
+                        key={i}
+                        model={{
+                          message: chat.content,
+                          sender: chat.role as string,
+                          position: "normal",
+                          direction:
+                            chat.role === "assistant" ? "incoming" : "outgoing",
+                        }}
+                        avatarPosition="cl"
+                      >
+                        <Avatar
+                          key={i}
+                          src={
+                            chat.role === "assistant"
+                              ? styles.chatBotImg
+                              : styles.userImg
+                          }
+                        />
+                      </Message>
                   );
                 })}
               </MessageList>
@@ -70,6 +86,7 @@ const ChatBot = ({ configs }: ChatBotProps) => {
                 placeholder={styles.placeholder}
                 onSend={handleSend}
                 autoFocus={true}
+                attachButton={false}
               />
             </ChatContainer>
           </MainContainer>

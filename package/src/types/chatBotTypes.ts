@@ -13,14 +13,11 @@ export type StylesConfig = {
   bottom?: string;
   left?: string;
   right?: string;
-  textColor?: string;
   width?: string;
   height?: string;
   placeholder?: string;
   chatBotImg?: string;
-  chatMessageBackground?: string;
   userImg?: string;
-  userMessageBackground?: string;
 };
 
 export type ChatBotProps = {

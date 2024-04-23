@@ -14,7 +14,7 @@ const CloseChatBot = ({ handleSetIsOpen }: Props) => {
   };
 
   return (
-    <button style={closeChatBotStyles} onClick={() => handleSetIsOpen()}>
+    <button className="orb-close--chatbot" style={closeChatBotStyles} onClick={() => handleSetIsOpen()}>
       X
     </button>
   );

@@ -6,6 +6,8 @@ import createNewMessage from "../utils/createNewMessage";
 const useOpenAI = (API_KEY: string, config: Config) => {
   const { prompt, helloMessage, model } = config;
   const [isTyping, setIsTyping] = useState(false);
+  const [isInitilalized, setIsInitilalized] = useState(false);
+
   const [input, setInput] = useState<ChatBotMessage | null>(null);
   const [chatBotMessages, setChatbotMessages] = useState<ChatBotMessage[]>([
     { role: "assistant", content: `${helloMessage}` },
@@ -18,11 +20,11 @@ const useOpenAI = (API_KEY: string, config: Config) => {
   const openai = new OpenAI(opts);
 
   useEffect(() => {
-    if (input === null) return;
+    if (!isInitilalized) return;
 
     async function handleChatBot() {
       setIsTyping(true);
-      
+
       const response = await openai.chat.completions.create({
         model: model,
         messages: [
@@ -34,11 +36,18 @@ const useOpenAI = (API_KEY: string, config: Config) => {
 
       setChatbotMessages([...chatBotMessages, newMessage]);
       setIsTyping(false);
+      setIsInitilalized(false);
     }
     handleChatBot();
   }, [input]);
 
-  return { chatBotMessages, isTyping, setChatbotMessages, setInput };
+  return {
+    chatBotMessages,
+    isTyping,
+    setChatbotMessages,
+    setInput,
+    setIsInitilalized,
+  };
 };
 
 export default useOpenAI;
