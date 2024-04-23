@@ -6,9 +6,7 @@ import createNewMessage from "../utils/createNewMessage";
 const useOpenAI = (API_KEY: string, config: Config) => {
   const { prompt, helloMessage, model } = config;
   const [isTyping, setIsTyping] = useState(false);
-  const [userInput, setUserInput] = useState<ChatBotMessage | undefined>(
-    undefined
-  );
+  const [input, setInput] = useState<ChatBotMessage | null>(null);
   const [chatBotMessages, setChatbotMessages] = useState<ChatBotMessage[]>([
     { role: "assistant", content: `${helloMessage}` },
   ]);
@@ -20,6 +18,8 @@ const useOpenAI = (API_KEY: string, config: Config) => {
   const openai = new OpenAI(opts);
 
   useEffect(() => {
+    if (input === null) return;
+
     async function handleChatBot() {
       console.log("Calling ChatGPT...");
 
@@ -31,17 +31,17 @@ const useOpenAI = (API_KEY: string, config: Config) => {
           ...chatBotMessages,
         ],
       });
+
       const newMessage = createNewMessage(response.choices[0].message);
 
       setChatbotMessages([...chatBotMessages, newMessage]);
-      console.log(chatBotMessages);
       console.log("Finished calling ChatGPT...");
       setIsTyping(false);
     }
     handleChatBot();
-  }, [userInput]);
+  }, [input]);
 
-  return { chatBotMessages, isTyping, setChatbotMessages, setUserInput };
+  return { chatBotMessages, isTyping, setChatbotMessages, setInput };
 };
 
 export default useOpenAI;

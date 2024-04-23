@@ -2,17 +2,27 @@ export type Config = {
   prompt: string;
   helloMessage: string;
   model: string;
+  name: string;
 };
 
 export type OptionalConfig = {
-  textColor: string;
-  logo: string;
+  logo?: string;
+  textColor?: string;
+  width?: string;
+  height?: string;
+  placeholder?: string;
+  chatBotImg?: string;
+  chatMessageBackground?: string;
+  userImg?: string;
+  userMessageBackground?: string;
 };
 
 export type ChatBotProps = {
-  API_KEY: string;
-  config: Config;
-  optionalConfig: OptionalConfig;
+  configuration: {
+    API_KEY: string;
+    config: Config;
+    optionalConfig: OptionalConfig;
+  };
 };
 
 export type ChatBotMessage = {

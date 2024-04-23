@@ -1,7 +1,9 @@
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
-import useOpenAI from "./hooks/useOpenAI.js";
-import { ChatBotProps, ChatBotMessage } from "./types/chatBotTypes.js";
 import { useState } from "react";
+import useOpenAI from "./hooks/useOpenAI.js";
+import applyDefaultValueTo from "./utils/applyDefaultValuesTo.js";
+import { ChatBotProps, ChatBotMessage } from "./types/chatBotTypes.js";
+
 import {
   MainContainer,
   ChatContainer,
@@ -11,28 +13,45 @@ import {
   TypingIndicator,
 } from "@chatscope/chat-ui-kit-react";
 
-const ChatBot = ({ API_KEY, config, optionalConfig }: ChatBotProps) => {
-  const {} = optionalConfig;
+const ChatBot = ({ configuration }: ChatBotProps) => {
+  const { API_KEY, config, optionalConfig } = configuration;
+  const {
+    logo,
+    textColor,
+    width,
+    height,
+    placeholder,
+    chatBotImg,
+    chatMessageBackground,
+    userImg,
+    userMessageBackground,
+  } = applyDefaultValueTo(optionalConfig);
   const [isOpen, setIsOpen] = useState(false);
 
-  const { chatBotMessages, setChatbotMessages, isTyping, setUserInput } =
-    useOpenAI(API_KEY, config);
+  const { chatBotMessages, setChatbotMessages, isTyping, setInput } = useOpenAI(
+    API_KEY,
+    config
+  );
 
   const handleSend = (message: string) => {
     const newMessage: ChatBotMessage = { role: "user", content: message };
     setChatbotMessages([...chatBotMessages, newMessage]);
-    setUserInput(newMessage);
-    console.log(chatBotMessages);
+    setInput(newMessage);
   };
 
   return (
     <>
       {isOpen ? (
-        <div style={{ position: "relative", height: "500px" }}>
+        <div style={{ position: "relative", height: height, width: width }}>
           <MainContainer>
             <ChatContainer>
               <MessageList
-                typingIndicator={isTyping ? <TypingIndicator /> : null}
+                scrollBehavior="smooth"
+                typingIndicator={
+                  isTyping ? (
+                    <TypingIndicator content={`${config.name} is typing...`} />
+                  ) : null
+                }
               >
                 {chatBotMessages.map((chat, i) => {
                   return (
@@ -49,17 +68,24 @@ const ChatBot = ({ API_KEY, config, optionalConfig }: ChatBotProps) => {
                   );
                 })}
               </MessageList>
-              <MessageInput
-                placeholder="Type message here"
-                onSend={handleSend}
-              />
+              <MessageInput placeholder={placeholder} onSend={handleSend} />
             </ChatContainer>
           </MainContainer>
           <button onClick={() => setIsOpen(!isOpen)}>Close Chat!X</button>
         </div>
       ) : (
         <div>
-          <button onClick={() => setIsOpen(!isOpen)}>Open Chat!</button>
+          <button
+            style={{
+              background: `url(${logo})`,
+              backgroundSize: "cover",
+              width: "30px",
+              height: "30px",
+            }}
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            Click here
+          </button>
         </div>
       )}
     </>
