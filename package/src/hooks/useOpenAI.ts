@@ -21,9 +21,8 @@ const useOpenAI = (API_KEY: string, config: Config) => {
     if (input === null) return;
 
     async function handleChatBot() {
-      console.log("Calling ChatGPT...");
-
       setIsTyping(true);
+      
       const response = await openai.chat.completions.create({
         model: model,
         messages: [
@@ -31,11 +30,9 @@ const useOpenAI = (API_KEY: string, config: Config) => {
           ...chatBotMessages,
         ],
       });
-
       const newMessage = createNewMessage(response.choices[0].message);
 
       setChatbotMessages([...chatBotMessages, newMessage]);
-      console.log("Finished calling ChatGPT...");
       setIsTyping(false);
     }
     handleChatBot();

@@ -1,0 +1,23 @@
+type Props = {
+  handleSetIsOpen: () => void;
+};
+
+const CloseChatBot = ({ handleSetIsOpen }: Props) => {
+  const closeChatBotStyles: React.CSSProperties = {
+    position: "absolute",
+    top: "10px",
+    right: "10px",
+    zIndex: 100,
+    fontSize: "17px",
+    background: "transparent",
+    border: "none",
+  };
+
+  return (
+    <button style={closeChatBotStyles} onClick={() => handleSetIsOpen()}>
+      X
+    </button>
+  );
+};
+
+export default CloseChatBot;

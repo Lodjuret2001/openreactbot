@@ -3,7 +3,8 @@ import { useState } from "react";
 import useOpenAI from "./hooks/useOpenAI.js";
 import applyDefaultValueTo from "./utils/applyDefaultValuesTo.js";
 import { ChatBotProps, ChatBotMessage } from "./types/chatBotTypes.js";
-
+import ChatBotContainer from "./components/ChatBotContainer.js";
+import LogoButton from "./components/LogoButton.js";
 import {
   MainContainer,
   ChatContainer,
@@ -12,26 +13,22 @@ import {
   Message,
   TypingIndicator,
 } from "@chatscope/chat-ui-kit-react";
+import CloseChatBot from "./components/CloseChatBot.js";
 
-const ChatBot = ({ configuration }: ChatBotProps) => {
-  const { API_KEY, config, optionalConfig } = configuration;
-  const {
-    logo,
-    textColor,
-    width,
-    height,
-    placeholder,
-    chatBotImg,
-    chatMessageBackground,
-    userImg,
-    userMessageBackground,
-  } = applyDefaultValueTo(optionalConfig);
+const ChatBot = ({ configs }: ChatBotProps) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { API_KEY, config, stylesConfig } = configs;
+  const styles = applyDefaultValueTo(stylesConfig);
 
   const { chatBotMessages, setChatbotMessages, isTyping, setInput } = useOpenAI(
     API_KEY,
     config
   );
+
+  const handleSetIsOpen = () => {
+    setIsOpen(!isOpen);
+  };
 
   const handleSend = (message: string) => {
     const newMessage: ChatBotMessage = { role: "user", content: message };
@@ -42,14 +39,15 @@ const ChatBot = ({ configuration }: ChatBotProps) => {
   return (
     <>
       {isOpen ? (
-        <div style={{ position: "relative", height: height, width: width }}>
+        <ChatBotContainer styles={styles}>
+          <CloseChatBot handleSetIsOpen={handleSetIsOpen} />
           <MainContainer>
             <ChatContainer>
               <MessageList
                 scrollBehavior="smooth"
                 typingIndicator={
                   isTyping ? (
-                    <TypingIndicator content={`${config.name} is typing...`} />
+                    <TypingIndicator content={`${styles.name} is typing...`} />
                   ) : null
                 }
               >
@@ -68,25 +66,16 @@ const ChatBot = ({ configuration }: ChatBotProps) => {
                   );
                 })}
               </MessageList>
-              <MessageInput placeholder={placeholder} onSend={handleSend} />
+              <MessageInput
+                placeholder={styles.placeholder}
+                onSend={handleSend}
+                autoFocus={true}
+              />
             </ChatContainer>
           </MainContainer>
-          <button onClick={() => setIsOpen(!isOpen)}>Close Chat!X</button>
-        </div>
+        </ChatBotContainer>
       ) : (
-        <div>
-          <button
-            style={{
-              background: `url(${logo})`,
-              backgroundSize: "cover",
-              width: "30px",
-              height: "30px",
-            }}
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            Click here
-          </button>
-        </div>
+        <LogoButton styles={styles} handleSetIsOpen={handleSetIsOpen} />
       )}
     </>
   );
