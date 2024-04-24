@@ -1,5 +1,5 @@
 import { ChatCompletionMessage } from "openai/resources/index.mjs";
-import { ChatBotMessage } from "../types/chatBotTypes";
+import { ChatBotMessage } from "../types/orbTypes";
 
 function createNewMessage(message: ChatCompletionMessage): ChatBotMessage {
   const { role, content } = message;

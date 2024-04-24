@@ -1,9 +1,8 @@
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
-import "../src/styles/openreactbot.css";
 import { useState } from "react";
 import useOpenAI from "./hooks/useOpenAI.js";
 import applyDefaultValueTo from "./utils/applyDefaultValuesTo.js";
-import { ChatBotProps, ChatBotMessage } from "./types/chatBotTypes.js";
+import { OpenReactBotProps, ChatBotMessage } from "./types/orbTypes.js";
 import ChatBotContainer from "./components/ChatBotContainer.js";
 import CloseChatBot from "./components/CloseChatBot.js";
 import LogoButton from "./components/LogoButton.js";
@@ -17,18 +16,15 @@ import {
   TypingIndicator,
 } from "@chatscope/chat-ui-kit-react";
 
-const ChatBot = ({ configs }: ChatBotProps) => {
+const OpenReactBot = ({ API_KEY, AIConfig, stylesConfig }: OpenReactBotProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { API_KEY, config, stylesConfig } = configs;
-
   const {
     chatBotMessages,
     setChatbotMessages,
     isTyping,
     setInput,
     setIsInitilalized,
-  } = useOpenAI(API_KEY, config);
-
+  } = useOpenAI(API_KEY, AIConfig);
   const styles = applyDefaultValueTo(stylesConfig);
 
   const handleSetIsOpen = () => {
@@ -59,26 +55,26 @@ const ChatBot = ({ configs }: ChatBotProps) => {
               >
                 {chatBotMessages.map((chat, i) => {
                   return (
-                      <Message
+                    <Message
+                      key={i}
+                      model={{
+                        message: chat.content,
+                        sender: chat.role as string,
+                        position: "normal",
+                        direction:
+                          chat.role === "assistant" ? "incoming" : "outgoing",
+                      }}
+                      avatarPosition="cl"
+                    >
+                      <Avatar
                         key={i}
-                        model={{
-                          message: chat.content,
-                          sender: chat.role as string,
-                          position: "normal",
-                          direction:
-                            chat.role === "assistant" ? "incoming" : "outgoing",
-                        }}
-                        avatarPosition="cl"
-                      >
-                        <Avatar
-                          key={i}
-                          src={
-                            chat.role === "assistant"
-                              ? styles.chatBotImg
-                              : styles.userImg
-                          }
-                        />
-                      </Message>
+                        src={
+                          chat.role === "assistant"
+                            ? styles.chatBotImg
+                            : styles.userImg
+                        }
+                      />
+                    </Message>
                   );
                 })}
               </MessageList>
@@ -98,4 +94,4 @@ const ChatBot = ({ configs }: ChatBotProps) => {
   );
 };
 
-export default ChatBot;
+export default OpenReactBot;

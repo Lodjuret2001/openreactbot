@@ -1,7 +1,7 @@
-import { StylesConfig } from "../types/chatBotTypes";
+import { StylesConfig } from "../types/orbTypes";
 import chatBotIcon from "../assets/chatbot-icon.png";
 import userIcon from "../assets/user-icon.png";
-import openreactbotIcon from "../assets/openreactbot-icon.png";
+import openreactbotIcon from "../assets/orb-logo.png";
 
 const applyDefaultValueTo = (stylesConfig: StylesConfig) => {
   const defaultValues = {

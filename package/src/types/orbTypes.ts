@@ -1,6 +1,6 @@
-export type Config = {
+export type AIConfig = {
   prompt: string;
-  helloMessage: string;
+  startMessage: string;
   model: string;
 };
 
@@ -20,12 +20,10 @@ export type StylesConfig = {
   userImg?: string;
 };
 
-export type ChatBotProps = {
-  configs: {
-    API_KEY: string;
-    config: Config;
-    stylesConfig: StylesConfig;
-  };
+export type OpenReactBotProps = {
+  API_KEY: string;
+  AIConfig: AIConfig;
+  stylesConfig: StylesConfig;
 };
 
 export type ChatBotMessage = {

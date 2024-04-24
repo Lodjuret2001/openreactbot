@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { StylesConfig } from "../types/chatBotTypes";
+import { StylesConfig } from "../types/orbTypes";
 type Props = {
   styles: StylesConfig;
   children: ReactNode;

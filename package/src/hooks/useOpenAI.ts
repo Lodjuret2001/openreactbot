@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
 import OpenAI, { ClientOptions } from "openai";
-import { Config, ChatBotMessage } from "../types/chatBotTypes";
+import { AIConfig, ChatBotMessage } from "../types/orbTypes";
 import createNewMessage from "../utils/createNewMessage";
 
-const useOpenAI = (API_KEY: string, config: Config) => {
-  const { prompt, helloMessage, model } = config;
+const useOpenAI = (API_KEY: string, config: AIConfig) => {
+  const { prompt, startMessage, model } = config;
   const [isTyping, setIsTyping] = useState(false);
   const [isInitilalized, setIsInitilalized] = useState(false);
-
   const [input, setInput] = useState<ChatBotMessage | null>(null);
   const [chatBotMessages, setChatbotMessages] = useState<ChatBotMessage[]>([
-    { role: "assistant", content: `${helloMessage}` },
+    { role: "assistant", content: `${startMessage}` },
   ]);
 
   const opts: ClientOptions = {

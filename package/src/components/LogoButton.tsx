@@ -1,4 +1,4 @@
-import { StylesConfig } from "../types/chatBotTypes";
+import { StylesConfig } from "../types/orbTypes";
 
 type Props = {
   styles: StylesConfig;
@@ -15,6 +15,7 @@ const LogoButton = ({ styles, handleSetIsOpen }: Props) => {
     width: logoWidth,
     height: logoHeight,
     borderRadius: logoBorderRadius,
+    border: "none",
     position: "fixed",
     bottom: bottom,
     left: left,
