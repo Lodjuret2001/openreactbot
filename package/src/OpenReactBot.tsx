@@ -16,7 +16,11 @@ import {
   TypingIndicator,
 } from "@chatscope/chat-ui-kit-react";
 
-const OpenReactBot = ({ API_KEY, AIConfig, stylesConfig }: OpenReactBotProps) => {
+const OpenReactBot = ({
+  API_KEY,
+  AIConfig,
+  stylesConfig,
+}: OpenReactBotProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const {
     chatBotMessages,
@@ -49,7 +53,10 @@ const OpenReactBot = ({ API_KEY, AIConfig, stylesConfig }: OpenReactBotProps) =>
                 scrollBehavior="smooth"
                 typingIndicator={
                   isTyping ? (
-                    <TypingIndicator content={`${styles.name} is typing...`} />
+                    <TypingIndicator
+                      className=".orb-typing--indicator"
+                      content={`${styles.name} is typing...`}
+                    />
                   ) : undefined
                 }
               >

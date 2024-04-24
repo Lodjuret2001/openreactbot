@@ -48,16 +48,21 @@
 .cs-button--send {
   color: #81d8e7;
 }
+/*--Typing animation background--*/
+.cs-message-list .cs-typing-indicator {
+  background-color: #81d8e7;
+  width: 100%;
+}
 
-.cs-message-list__typing-indicator-container {
-  background-color: #b4e9f1;
+/*--Typing animation text--*/
+.cs-typing-indicator__text {
+  background-color: inherit;
   color: black;
 }
 
 /*--Typing animation dots--*/
 .cs-typing-indicator__dot {
   background-color: #9331b2;
-  color: #0b1516;
 }
 
 /*--Scrollbar background container (OnClick)--*/
