@@ -5,7 +5,7 @@
     "url": "https://github.com/Lodjuret2001"
   },
   "name": "openreactbot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Customize your OpenAI chatbot for react",
   "main": "dist/OpenReactBot.tsx",
   "type": "module",
