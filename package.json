@@ -17,7 +17,7 @@
     "build": "tsc"
   },
   "repository": {
-    "url": "https://github.com/Lodjuret2001/openreactbot.git"
+    "url": "git+https://github.com/Lodjuret2001/openreactbot.git"
   },
   "keywords": [
     "openreactbot",
