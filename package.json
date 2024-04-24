@@ -11,6 +11,7 @@
   "types": "dist/OpenReactBot.d.ts",
   "type": "module",
   "homepage": "https://github.com/Lodjuret2001/openreactbot#readme",
+  "readme": "./README.md",
   "license": "MIT",
   "scripts": {
     "build": "tsc"
@@ -51,5 +52,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "bugs": {
+    "email": "minecraftpontus@gmail.com"
   }
 }
