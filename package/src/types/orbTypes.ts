@@ -1,3 +1,9 @@
+export type OpenReactBotProps = {
+  API_KEY: string;
+  AIConfig: AIConfig;
+  stylesConfig: StylesConfig;
+};
+
 export type AIConfig = {
   prompt: string;
   startMessage: string;
@@ -5,26 +11,21 @@ export type AIConfig = {
 };
 
 export type StylesConfig = {
-  name?: string;
+  bottom?: string;
+  chatBotImg?: string;
+  height?: string;
+  left?: string;
   logo?: string;
+  logoBorderRadius?: string;
   logoHeight?: string;
   logoWidth?: string;
-  logoBorderRadius?: string;
-  bottom?: string;
-  left?: string;
-  right?: string;
-  width?: string;
-  height?: string;
+  name?: string;
   placeholder?: string;
-  chatBotImg?: string;
+  right?: string;
   userImg?: string;
+  width?: string;
 };
 
-export type OpenReactBotProps = {
-  API_KEY: string;
-  AIConfig: AIConfig;
-  stylesConfig: StylesConfig;
-};
 
 export type ChatBotMessage = {
   role: "system" | "assistant" | "user";

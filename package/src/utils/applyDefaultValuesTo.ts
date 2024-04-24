@@ -5,19 +5,19 @@ import openreactbotIcon from "../assets/orb-logo.png";
 
 const applyDefaultValueTo = (stylesConfig: StylesConfig) => {
   const defaultValues = {
-    name: "OpenReactBot",
+    bottom: "30px",
+    chatBotImg: `${chatBotIcon}`,
+    height: "600px",
+    left: "",
     logo: `${openreactbotIcon}`,
+    logoBorderRadius: "50px",
     logoHeight: "100px",
     logoWidth: "100px",
-    logoBorderRadius: "50px",
-    bottom: "30px",
-    left: "",
-    right: "20px",
-    width: "350px",
-    height: "600px",
+    name: "OpenReactBot",
     placeholder: "Type your message...",
-    chatBotImg: `${chatBotIcon}`,
+    right: "20px",
     userImg: `${userIcon}`,
+    width: "350px",
   };
 
   return { ...defaultValues, ...stylesConfig };
