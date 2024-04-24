@@ -1,12 +1,18 @@
 {
+  "author": {
+    "name": "Pontus Norup",
+    "email": "minecraftpontus@gmail.com",
+    "url": "https://github.com/Lodjuret2001"
+  },
   "name": "openreactbot",
   "version": "1.0.0",
-  "description": "OpenAI chatbot for react library",
-  "main": "dist/index.js",
+  "description": "Customize your OpenAI chatbot for react",
+  "main": "dist/OpenReactBot.tsx",
   "type": "module",
-  "types": "dist/index.d.ts",
+  "types": "dist/**/*.d.ts",
+  "homepage": "https://github.com/Lodjuret2001/openreactbot#readme",
+  "license": "MIT",
   "scripts": {
-    "test": "jest",
     "build": "tsc"
   },
   "repository": {
@@ -14,11 +20,36 @@
     "url": "https://github.com/Lodjuret2001/openreactbot.git"
   },
   "keywords": [
-    "openreactbot"
+    "openreactbot",
+    "chat",
+    "react",
+    "reactjs",
+    "ui",
+    "user interface",
+    "components",
+    "ui kit",
+    "communication",
+    "conversation",
+    "toolkit",
+    "library",
+    "frontend",
+    "reusable",
+    "feed",
+    "comments",
+    "social",
+    "talk"
   ],
-  "author": "Pontus Norup (minecraftpontus@gmail.com)",
-  "license": "ISC",
   "devDependencies": {
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@chatscope/chat-ui-kit-react": "^2.0.3",
+    "@chatscope/chat-ui-kit-styles": "^1.4.0",
+    "@types/react": "^18.2.79",
+    "openai": "^4.38.2",
+    "react": "^18.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
