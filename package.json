@@ -1,10 +1,17 @@
 {
+  "author": {
+    "name": "Pontus Norup",
+    "email": "minecraftpontus@gmail.com",
+    "url": "https://github.com/Lodjuret2001"
+  },
   "name": "openreactbot",
   "version": "1.0.0",
-  "description": "OpenAI chatbot for react",
-  "main": "dist/OpenReactBot.jsx",
+  "description": "Customize your OpenAI chatbot for react",
+  "main": "dist/OpenReactBot.tsx",
   "type": "module",
-  "types": "dist/index.d.ts",
+  "types": "dist/**/*.d.ts",
+  "homepage": "https://github.com/Lodjuret2001/openreactbot#readme",
+  "license": "MIT",
   "scripts": {
     "build": "tsc"
   },
@@ -32,8 +39,6 @@
     "social",
     "talk"
   ],
-  "author": "Pontus Norup",
-  "license": "MIT",
   "devDependencies": {
     "typescript": "^5.4.5"
   },
@@ -43,5 +48,8 @@
     "@types/react": "^18.2.79",
     "openai": "^4.38.2",
     "react": "^18.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
