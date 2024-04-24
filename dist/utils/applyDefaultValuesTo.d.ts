@@ -1,5 +1,4 @@
 import { StylesConfig } from "../types/orbTypes";
-import "../../assets";
 declare const applyDefaultValueTo: (stylesConfig: StylesConfig) => {
     bottom: string;
     chatBotImg: string;

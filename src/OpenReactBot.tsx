@@ -3,9 +3,9 @@ import { useState } from "react";
 import useOpenAI from "./hooks/useOpenAI.js";
 import applyDefaultValueTo from "./utils/applyDefaultValuesTo.js";
 import { OpenReactBotProps, ChatBotMessage } from "./types/orbTypes.js";
-import ChatBotContainer from "./components/ChatBotContainer.js";
-import CloseChatBot from "./components/CloseChatBot.js";
-import LogoButton from "./components/LogoButton.js";
+import ChatBotContainer from "./components/ChatBotContainer.jsx";
+import CloseChatBot from "./components/CloseChatBot.jsx";
+import LogoButton from "./components/LogoButton.jsx";
 import {
   Avatar,
   MainContainer,

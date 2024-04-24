@@ -2,9 +2,9 @@ import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import { useState } from "react";
 import useOpenAI from "./hooks/useOpenAI.js";
 import applyDefaultValueTo from "./utils/applyDefaultValuesTo.js";
-import ChatBotContainer from "./components/ChatBotContainer.js";
-import CloseChatBot from "./components/CloseChatBot.js";
-import LogoButton from "./components/LogoButton.js";
+import ChatBotContainer from "./components/ChatBotContainer.jsx";
+import CloseChatBot from "./components/CloseChatBot.jsx";
+import LogoButton from "./components/LogoButton.jsx";
 import { Avatar, MainContainer, ChatContainer, MessageList, MessageInput, Message, TypingIndicator, } from "@chatscope/chat-ui-kit-react";
 const OpenReactBot = ({ API_KEY, AIConfig, stylesConfig, }) => {
     const [isOpen, setIsOpen] = useState(false);
