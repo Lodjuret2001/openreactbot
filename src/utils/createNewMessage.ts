@@ -1,4 +1,4 @@
-import { ChatCompletionMessage } from "openai/resources/index.mjs";
+import { ChatCompletionMessage } from "openai/src/resources/index.js";
 import { ChatBotMessage } from "../types/orbTypes";
 
 function createNewMessage(message: ChatCompletionMessage): ChatBotMessage {

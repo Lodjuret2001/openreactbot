@@ -14,7 +14,7 @@ import {
   MessageInput,
   Message,
   TypingIndicator,
-} from "@chatscope/chat-ui-kit-react";
+} from "@chatscope/chat-ui-kit-react/src/types/index.js";
 
 const OpenReactBot = ({
   API_KEY,
