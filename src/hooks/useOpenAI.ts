@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import OpenAI, { ClientOptions } from "openai";
 import { AIConfig, ChatBotMessage } from "../types/orbTypes";
-import createNewMessage from "../utils/createNewMessage";
+import createNewMessage from "../helpers/createNewMessage";
 
 const useOpenAI = (API_KEY: string, config: AIConfig) => {
   const { prompt, startMessage, model } = config;

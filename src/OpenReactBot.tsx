@@ -1,20 +1,15 @@
-import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
+import "react-chatbot-kit/build/main.css";
 import { useState } from "react";
 import useOpenAI from "./hooks/useOpenAI.js";
-import applyDefaultValueTo from "./utils/applyDefaultValuesTo.js";
-import { OpenReactBotProps, ChatBotMessage } from "./types/orbTypes.js";
-import ChatBotContainer from "./components/ChatBotContainer.jsx";
-import CloseChatBot from "./components/CloseChatBot.jsx";
+import applyDefaultValueTo from "./helpers/applyDefaultValuesTo.js";
+import createRckConfig from "./utils/createRckConfig.js";
+import { OpenReactBotProps } from "./types/orbTypes.js";
+
+//Components
+import Chatbot from "react-chatbot-kit";
+import ActionProvider from "./components/ActionProvider.jsx";
+import MessageParser from "./components/MessageParser.jsx";
 import LogoButton from "./components/LogoButton.jsx";
-import {
-  Avatar,
-  MainContainer,
-  ChatContainer,
-  MessageList,
-  MessageInput,
-  Message,
-  TypingIndicator,
-} from "@chatscope/chat-ui-kit-react/src/types/index.js";
 
 const OpenReactBot = ({
   API_KEY,
@@ -22,6 +17,7 @@ const OpenReactBot = ({
   stylesConfig,
 }: OpenReactBotProps) => {
   const [isOpen, setIsOpen] = useState(false);
+
   const {
     chatBotMessages,
     setChatbotMessages,
@@ -29,71 +25,41 @@ const OpenReactBot = ({
     setInput,
     setIsInitilalized,
   } = useOpenAI(API_KEY, AIConfig);
+
   const styles = applyDefaultValueTo(stylesConfig);
 
   const handleSetIsOpen = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleSend = (message: string) => {
-    const newMessage: ChatBotMessage = { role: "user", content: message };
-    setChatbotMessages([...chatBotMessages, newMessage]);
-    setIsInitilalized(true);
-    setInput(newMessage);
-  };
+  const config = createRckConfig(
+    styles.name,
+    AIConfig.startMessage,
+    chatBotMessages
+    // styles.chatBotImg,
+    // styles.userImg
+  );
+
+  console.log(config);
 
   return (
     <>
       {isOpen ? (
-        <ChatBotContainer styles={styles}>
-          <CloseChatBot handleSetIsOpen={handleSetIsOpen} />
-          <MainContainer>
-            <ChatContainer>
-              <MessageList
-                scrollBehavior="smooth"
-                typingIndicator={
-                  isTyping ? (
-                    <TypingIndicator
-                      className=".orb-typing--indicator"
-                      content={`${styles.name} is typing...`}
-                    />
-                  ) : undefined
-                }
-              >
-                {chatBotMessages.map((chat, i) => {
-                  return (
-                    <Message
-                      key={i}
-                      model={{
-                        message: chat.content,
-                        sender: chat.role as string,
-                        position: "normal",
-                        direction:
-                          chat.role === "assistant" ? "incoming" : "outgoing",
-                      }}
-                      avatarPosition="cl"
-                    >
-                      <Avatar
-                        key={i}
-                        src={
-                          chat.role === "assistant"
-                            ? styles.chatBotImg
-                            : styles.userImg
-                        }
-                      />
-                    </Message>
-                  );
-                })}
-              </MessageList>
-              <MessageInput
-                placeholder={styles.placeholder}
-                onSend={handleSend}
-                autoFocus={true}
-                attachButton={false}
-              />
-            </ChatContainer>
-          </MainContainer>
-        </ChatBotContainer>
+        <div
+          style={{
+            position: "fixed",
+            bottom: "20px",
+            right: "20px",
+            border: "1px solid black",
+            padding: "5px",
+          }}
+        >
+          <Chatbot
+            config={config}
+            actionProvider={ActionProvider}
+            messageParser={MessageParser}
+          />
+        </div>
       ) : (
         <LogoButton styles={styles} handleSetIsOpen={handleSetIsOpen} />
       )}

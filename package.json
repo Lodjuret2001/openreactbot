@@ -40,7 +40,8 @@
     "talk"
   ],
   "dependencies": {
-    "openai": "^4.38.2"
+    "openai": "^4.38.2",
+    "react-chatbot-kit": "^2.2.2"
   },
   "peerDependencies": {
     "react": "^18.2.0",
