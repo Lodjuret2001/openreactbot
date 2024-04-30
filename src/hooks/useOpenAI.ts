@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import OpenAI, { ClientOptions } from "openai";
 import { AIConfig, ChatBotMessage } from "../types/orbTypes";
-import createNewMessage from "../helpers/createNewMessage";
+import createNewMessage from "../helpers/createOpenAiTypeMessage";
 
-const useOpenAI = (API_KEY: string, config: AIConfig) => {
+const useOpenAI = (config: AIConfig) => {
   const { prompt, startMessage, model } = config;
   const [isTyping, setIsTyping] = useState(false);
   const [isInitilalized, setIsInitilalized] = useState(false);
@@ -12,15 +11,8 @@ const useOpenAI = (API_KEY: string, config: AIConfig) => {
     { role: "assistant", content: `${startMessage}` },
   ]);
 
-  const opts: ClientOptions = {
-    apiKey: API_KEY,
-    dangerouslyAllowBrowser: true,
-  };
-  const openai = new OpenAI(opts);
-
   useEffect(() => {
     if (!isInitilalized) return;
-
     async function handleChatBot() {
       setIsTyping(true);
 
@@ -36,8 +28,8 @@ const useOpenAI = (API_KEY: string, config: AIConfig) => {
       setChatbotMessages([...chatBotMessages, newMessage]);
       setIsTyping(false);
       setIsInitilalized(false);
+      handleChatBot();
     }
-    handleChatBot();
   }, [input]);
 
   return {
@@ -46,6 +38,7 @@ const useOpenAI = (API_KEY: string, config: AIConfig) => {
     setChatbotMessages,
     setInput,
     setIsInitilalized,
+    handleChatBot,
   };
 };
 

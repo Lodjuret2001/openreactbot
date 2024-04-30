@@ -5,7 +5,7 @@ const MessageParser = ({ children, actions }: MessageParserProps) => {
   const parse = (message: string) => {
     if (typeof message === "string") {
       actions.handleSend(message);
-    }
+    } else return;
   };
 
   return (

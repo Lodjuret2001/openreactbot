@@ -27,7 +27,7 @@ export type StylesConfig = {
 };
 
 
-export type ChatBotMessage = {
+export type OpenAIMessage = {
   role: "system" | "assistant" | "user";
   content: string;
 };

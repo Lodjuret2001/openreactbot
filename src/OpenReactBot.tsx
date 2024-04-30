@@ -1,7 +1,7 @@
 import "react-chatbot-kit/build/main.css";
 import { useState } from "react";
-import useOpenAI from "./hooks/useOpenAI.js";
 import applyDefaultValueTo from "./helpers/applyDefaultValuesTo.js";
+import initializeOpenAI from "./utils/initializeOpenAI.js";
 import createRckConfig from "./utils/createRckConfig.js";
 import { OpenReactBotProps } from "./types/orbTypes.js";
 
@@ -17,15 +17,7 @@ const OpenReactBot = ({
   stylesConfig,
 }: OpenReactBotProps) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const {
-    chatBotMessages,
-    setChatbotMessages,
-    isTyping,
-    setInput,
-    setIsInitilalized,
-  } = useOpenAI(API_KEY, AIConfig);
-
+  const openai = initializeOpenAI(API_KEY);
   const styles = applyDefaultValueTo(stylesConfig);
 
   const handleSetIsOpen = () => {
@@ -35,12 +27,15 @@ const OpenReactBot = ({
   const config = createRckConfig(
     styles.name,
     AIConfig.startMessage,
-    chatBotMessages
+
     // styles.chatBotImg,
     // styles.userImg
+    openai,
+    AIConfig,
+
   );
 
-  console.log(config);
+  console.log("I am the created config:", config);
 
   return (
     <>
