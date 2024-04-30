@@ -1,10 +1,5 @@
 import { StylesConfig } from "../types/orbTypes";
 
-type Props = {
-  styles: StylesConfig;
-  handleSetIsOpen: () => void;
-};
-
 const LogoButton = ({ styles, handleSetIsOpen }: Props) => {
   const { logo, logoWidth, logoHeight, logoBorderRadius, bottom, left, right } =
     styles;
@@ -25,6 +20,11 @@ const LogoButton = ({ styles, handleSetIsOpen }: Props) => {
   return (
     <button style={logoButtonStyles} onClick={() => handleSetIsOpen()}></button>
   );
+};
+
+type Props = {
+  styles: StylesConfig;
+  handleSetIsOpen: () => void;
 };
 
 export default LogoButton;

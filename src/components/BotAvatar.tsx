@@ -1,9 +1,7 @@
-import { ReactElement } from "react";
-
-const BotAvatar = (botAvatar: string): ReactElement => {
+const BotAvatar = (chatAvatar: string) => {
   return (
     <div>
-      <img src={botAvatar} />
+      <img style={{ width: "30px", height: "30px" }} src={chatAvatar} />
     </div>
   );
 };

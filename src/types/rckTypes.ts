@@ -1,50 +1,50 @@
+import OpenAI from "openai";
 import { ReactElement } from "react";
 import { AIConfig, OpenAIMessage } from "./orbTypes";
-import OpenAI from "openai";
 import { IMessageOptions } from "react-chatbot-kit/build/src/interfaces/IMessages";
 
-export type MessageParserProps = {
-  children: ReactElement;
-  actions: Actions;
-};
-
-type State = {
-  messages: ChatBotMessage[];
-  openAIMessages: OpenAIMessage[];
-  openai: OpenAI;
-  aiConfig: AIConfig;
-};
-
 export type ActionProviderProps = {
-  state: State;
-  setState: React.Dispatch<React.SetStateAction<State>>;
   children: ReactElement;
   createChatBotMessage: (
     message: string,
     options: IMessageOptions
   ) => ChatBotMessage;
+  setState: React.Dispatch<React.SetStateAction<State>>;
+  state: State;
 };
 
 export type Actions = {
   handleSend: (message: string) => void;
 };
 
-export type ChatResponseProps = {
-  openai: OpenAI;
-  AIConfig: AIConfig;
-  isTyping: boolean;
-  state: State;
-  setState: React.Dispatch<React.SetStateAction<State>>;
-  setIsTyping: React.Dispatch<React.SetStateAction<boolean>>;
-  setOpenAIMessages: React.Dispatch<React.SetStateAction<OpenAIMessage[]>>;
+export type ChatBotMessage = {
+  delay?: number | undefined;
+  id: number;
+  loading: boolean;
+  message: string;
+  payload?: any;
+  type: string;
+  widget?: string | undefined;
 };
 
-export type ChatBotMessage = {
-  loading: boolean;
-  widget?: string | undefined;
-  delay?: number | undefined;
-  payload?: any;
-  message: string;
-  type: string;
-  id: number;
+export type ChatResponseProps = {
+  AIConfig: AIConfig;
+  isTyping: boolean;
+  openai: OpenAI;
+  setOpenAIMessages: React.Dispatch<React.SetStateAction<OpenAIMessage[]>>;
+  setState: React.Dispatch<React.SetStateAction<State>>;
+  setIsTyping: React.Dispatch<React.SetStateAction<boolean>>;
+  state: State;
+};
+
+export type MessageParserProps = {
+  actions: Actions;
+  children: ReactElement;
+};
+
+export type State = {
+  aiConfig: AIConfig;
+  messages: ChatBotMessage[];
+  openAIMessages: OpenAIMessage[];
+  openai: OpenAI;
 };

@@ -1,15 +1,14 @@
 import "react-chatbot-kit/build/main.css";
-import { useState } from "react";
 import applyDefaultValueTo from "./helpers/applyDefaultValuesTo.js";
 import initializeOpenAI from "./utils/initializeOpenAI.js";
 import createRckConfig from "./utils/createRckConfig.js";
-import { OpenReactBotProps } from "./types/orbTypes.js";
-
-//Components
 import Chatbot from "react-chatbot-kit";
+import ChatBotContainer from "./components/ChatBotContainer.jsx";
 import ActionProvider from "./components/ActionProvider.jsx";
 import MessageParser from "./components/MessageParser.jsx";
 import LogoButton from "./components/LogoButton.jsx";
+import { useState } from "react";
+import { OpenReactBotProps } from "./types/orbTypes.js";
 
 const OpenReactBot = ({
   API_KEY,
@@ -26,35 +25,23 @@ const OpenReactBot = ({
 
   const config = createRckConfig(
     styles.name,
-    AIConfig.startMessage,
-
-    // styles.chatBotImg,
-    // styles.userImg
-    openai,
+    styles.chatBotImg,
+    styles.userImg,
     AIConfig,
-
+    AIConfig.startMessage,
+    openai
   );
-
-  console.log("I am the created config:", config);
 
   return (
     <>
       {isOpen ? (
-        <div
-          style={{
-            position: "fixed",
-            bottom: "20px",
-            right: "20px",
-            border: "1px solid black",
-            padding: "5px",
-          }}
-        >
+        <ChatBotContainer styles={styles}>
           <Chatbot
             config={config}
             actionProvider={ActionProvider}
             messageParser={MessageParser}
           />
-        </div>
+        </ChatBotContainer>
       ) : (
         <LogoButton styles={styles} handleSetIsOpen={handleSetIsOpen} />
       )}

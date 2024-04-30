@@ -1,11 +1,11 @@
 import React from "react";
 import { MessageParserProps } from "../types/rckTypes";
 
-const MessageParser = ({ children, actions }: MessageParserProps) => {
+const MessageParser = ({ actions, children }: MessageParserProps) => {
   const parse = (message: string) => {
     if (typeof message === "string") {
       actions.handleSend(message);
-    } else return;
+    }
   };
 
   return (

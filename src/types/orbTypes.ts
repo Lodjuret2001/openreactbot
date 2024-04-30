@@ -1,13 +1,18 @@
+export type AIConfig = {
+  prompt: string;
+  model: string;
+  startMessage: string;
+};
+
+export type OpenAIMessage = {
+  content: string;
+  role: "system" | "assistant" | "user";
+};
+
 export type OpenReactBotProps = {
   API_KEY: string;
   AIConfig: AIConfig;
   stylesConfig: StylesConfig;
-};
-
-export type AIConfig = {
-  prompt: string;
-  startMessage: string;
-  model: string;
 };
 
 export type StylesConfig = {
@@ -24,10 +29,4 @@ export type StylesConfig = {
   right?: string;
   userImg?: string;
   width?: string;
-};
-
-
-export type OpenAIMessage = {
-  role: "system" | "assistant" | "user";
-  content: string;
 };

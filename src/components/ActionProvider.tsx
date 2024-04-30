@@ -1,13 +1,13 @@
 import React from "react";
+import createOpenAiTypeMessage from "../helpers/createOpenAiTypeMessage";
 import { ActionProviderProps } from "../types/rckTypes";
 import { OpenAIMessage } from "../types/orbTypes";
-import createOpenAiTypeMessage from "../helpers/createOpenAiTypeMessage";
 
 const ActionProvider = ({
   children,
-  state,
-  setState,
   createChatBotMessage,
+  setState,
+  state,
 }: ActionProviderProps) => {
   const handleSend = (message: string) => {
     const openai = state.openai;
@@ -36,7 +36,6 @@ const ActionProvider = ({
       });
 
       setState((prev) => {
-        console.log("...prev:", { ...prev });
         return {
           ...prev,
           messages: [...prev.messages, chatBotMessage],
