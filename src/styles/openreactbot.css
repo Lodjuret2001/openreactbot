@@ -13,8 +13,8 @@
   right: 30px;
   width: 300px;
   padding: 10px;
-  background-color: var(--orb-pink);
-  border: 5px solid var(--orb-dark-purple);
+  background-color: whitesmoke;
+  border: 5px solid var(--orb-light-purple);
   border-radius: 3px;
 }
 
@@ -24,11 +24,11 @@
 }
 
 .react-chatbot-kit-chat-inner-container {
-  background-color: var(--orb-pink);
+  background-color: whitesmoke;
 }
 
 .react-chatbot-kit-chat-header {
-  background-color: var(--orb-dark-purple);
+  background-color: var(--orb-light-purple);
   font-family: Arial;
   text-align: center;
   font-size: 0.85rem;
@@ -58,18 +58,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--orb-dark-purple);
   padding: 5px;
 }
 
 .react-chatbot-kit-chat-input {
-  background-color: white;
+  border: 3px solid rgb(199, 199, 199);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.281);
   flex: 1;
   padding: 10px;
-  border: none;
   border-radius: 5px;
   font-size: 0.85rem;
-  padding: 11px;
 }
 
 .react-chatbot-kit-chat-input::placeholder {
@@ -77,17 +75,23 @@
 }
 
 .react-chatbot-kit-chat-input:focus {
-  padding: 9px;
+  padding: 10px;
   color: black;
-  border: 2px solid var(--orb-dark-turquoise);
+  border: 3px solid var(--orb-dark-turquoise);
   outline: none;
 }
 
 .react-chatbot-kit-chat-btn-send {
   margin-left: 10px;
   background-color: var(--orb-dark-turquoise);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.281);
   border: none;
   border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.react-chatbot-kit-chat-btn-send:hover {
+  transform: scale(1.1);
 }
 
 .react-chatbot-kit-chat-btn-send-icon {
@@ -202,19 +206,19 @@
 
 #chatbot-loader #chatbot-loader-dot1 {
   animation: load 1s infinite;
-  fill: var(--orb-dark-purple);
+  fill: var(--orb-light-purple);
 }
 
 #chatbot-loader #chatbot-loader-dot2 {
   animation: load 1s infinite;
   animation-delay: 0.2s;
-  fill: var(--orb-dark-purple);
+  fill: var(--orb-light-purple);
 }
 
 #chatbot-loader #chatbot-loader-dot3 {
   animation: load 1s infinite;
   animation-delay: 0.4s;
-  fill: var(--orb-dark-purple);
+  fill: var(--orb-light-purple);
 }
 
 @keyframes load {
@@ -260,6 +264,6 @@
 }
 
 .react-chatbot-kit-chat-bot-avatar-letter {
-    position: relative;
-    top: -6px;
+  position: relative;
+  top: -6px;
 }

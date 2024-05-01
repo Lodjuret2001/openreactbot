@@ -7,7 +7,7 @@ const applyDefaultValueTo = (stylesConfig: StylesConfig) => {
   const defaultValues = {
     bottom: "30px",
     chatBotImg: `${chatBotIcon}`,
-    height: "600px",
+    headerText: "Conversation with OpenReactBot",
     left: "",
     logo: `${openreactbotIcon}`,
     logoBorderRadius: "50px",
@@ -17,7 +17,6 @@ const applyDefaultValueTo = (stylesConfig: StylesConfig) => {
     placeholder: "Type your message...",
     right: "20px",
     userImg: `${userIcon}`,
-    width: "350px",
   };
 
   return { ...defaultValues, ...stylesConfig };

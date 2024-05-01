@@ -1,5 +1,6 @@
 import OpenAI from "openai";
 import IConfig from "react-chatbot-kit/build/src/interfaces/IConfig";
+import ChatBotHeader from "../components/ChatBotHeader.jsx";
 import UserAvatar from "../components/UserAvatar.jsx";
 import BotAvatar from "../components/BotAvatar.jsx";
 import { AIConfig, OpenAIMessage } from "../types/orbTypes.js";
@@ -7,6 +8,7 @@ import { createChatBotMessage } from "react-chatbot-kit";
 
 const createRckConfig = (
   botName: string,
+  headerText: string,
   chatAvatar: string,
   userAvatar: string,
   config: AIConfig,
@@ -21,6 +23,7 @@ const createRckConfig = (
     botName: botName,
     initialMessages: [createChatBotMessage(startMessage, {})],
     customComponents: {
+      header: () => ChatBotHeader(headerText),
       botAvatar: () => BotAvatar(chatAvatar),
       userAvatar: () => UserAvatar(userAvatar),
     },

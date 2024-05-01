@@ -18,7 +18,7 @@ export type OpenReactBotProps = {
 export type StylesConfig = {
   bottom?: string;
   chatBotImg?: string;
-  height?: string;
+  headerText?: string;
   left?: string;
   logo?: string;
   logoBorderRadius?: string;
@@ -28,5 +28,4 @@ export type StylesConfig = {
   placeholder?: string;
   right?: string;
   userImg?: string;
-  width?: string;
 };

@@ -25,6 +25,7 @@ const OpenReactBot = ({
 
   const config = createRckConfig(
     styles.name,
+    styles.headerText,
     styles.chatBotImg,
     styles.userImg,
     AIConfig,
