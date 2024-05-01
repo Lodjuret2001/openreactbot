@@ -1,8 +1,6 @@
 import { ReactNode } from "react";
-import { StylesConfig } from "../types/orbTypes";
+declare const ChatBotMainContainer: ({ children }: Props) => import("react").JSX.Element;
 type Props = {
-    styles: StylesConfig;
     children: ReactNode;
 };
-declare const ChatBotContainer: ({ styles, children }: Props) => import("react").JSX.Element;
-export default ChatBotContainer;
+export default ChatBotMainContainer;

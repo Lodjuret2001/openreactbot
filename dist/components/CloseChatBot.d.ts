@@ -1,6 +1,6 @@
 /// <reference types="react" />
+declare const CloseChatBot: ({ handleSetIsOpen }: Props) => import("react").JSX.Element;
 type Props = {
     handleSetIsOpen: () => void;
 };
-declare const CloseChatBot: ({ handleSetIsOpen }: Props) => import("react").JSX.Element;
 export default CloseChatBot;
