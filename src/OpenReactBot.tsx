@@ -4,6 +4,7 @@ import initializeOpenAI from "./utils/initializeOpenAI.js";
 import createRckConfig from "./utils/createRckConfig.js";
 import Chatbot from "react-chatbot-kit";
 import ChatBotMainContainer from "./components/ChatBotContainer";
+import CloseChatBot from "./components/CloseChatBot";
 import ActionProvider from "./components/ActionProvider.jsx";
 import MessageParser from "./components/MessageParser.jsx";
 import LogoButton from "./components/LogoButton.jsx";
@@ -37,6 +38,7 @@ const OpenReactBot = ({
     <>
       {isOpen ? (
         <ChatBotMainContainer>
+          <CloseChatBot handleSetIsOpen={handleSetIsOpen} />
           <Chatbot
             config={config}
             actionProvider={ActionProvider}

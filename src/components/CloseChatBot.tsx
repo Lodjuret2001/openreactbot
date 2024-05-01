@@ -1,7 +1,9 @@
-const CloseChatBot = () => {
-  return (
-    <div>CloseChatBot</div>
-  )
-}
+const CloseChatBot = ({ handleSetIsOpen }: Props) => {
+  return <button className="react-chatbot-kit-close-btn" onClick={() => handleSetIsOpen()}>X</button>;
+};
 
-export default CloseChatBot
+type Props = {
+  handleSetIsOpen: () => void;
+};
+
+export default CloseChatBot;
