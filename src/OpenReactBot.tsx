@@ -1,9 +1,9 @@
-import "react-chatbot-kit/build/main.css";
+import "./styles/openreactbot.css";
 import applyDefaultValueTo from "./helpers/applyDefaultValuesTo.js";
 import initializeOpenAI from "./utils/initializeOpenAI.js";
 import createRckConfig from "./utils/createRckConfig.js";
 import Chatbot from "react-chatbot-kit";
-import ChatBotContainer from "./components/ChatBotContainer.jsx";
+import ChatBotMainContainer from "./components/ChatBotContainer";
 import ActionProvider from "./components/ActionProvider.jsx";
 import MessageParser from "./components/MessageParser.jsx";
 import LogoButton from "./components/LogoButton.jsx";
@@ -35,13 +35,13 @@ const OpenReactBot = ({
   return (
     <>
       {isOpen ? (
-        <ChatBotContainer styles={styles}>
+        <ChatBotMainContainer>
           <Chatbot
             config={config}
             actionProvider={ActionProvider}
             messageParser={MessageParser}
           />
-        </ChatBotContainer>
+        </ChatBotMainContainer>
       ) : (
         <LogoButton styles={styles} handleSetIsOpen={handleSetIsOpen} />
       )}

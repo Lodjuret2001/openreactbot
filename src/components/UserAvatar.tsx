@@ -1,7 +1,7 @@
 const UserAvatar = (userAvatar: string) => {
   return (
-    <div>
-      <img style={{ width: "30px", height: "30px" }} src={userAvatar} />
+    <div className="react-chatbot-kit-user-avatar-container">
+      <img className="react-chatbot-kit-user-avatar-icon" src={userAvatar} />
     </div>
   );
 };
