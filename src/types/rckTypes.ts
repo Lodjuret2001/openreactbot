@@ -15,6 +15,7 @@ export type ActionProviderProps = {
 
 export type Actions = {
   handleSend: (message: string) => void;
+  handleEmptyString: () => void;
 };
 
 export type ChatBotMessage = {

@@ -3,9 +3,9 @@ import { MessageParserProps } from "../types/rckTypes";
 
 const MessageParser = ({ actions, children }: MessageParserProps) => {
   const parse = (message: string) => {
-    if (typeof message === "string") {
-      actions.handleSend(message);
-    }
+    typeof message === "string" && message !== ""
+      ? actions.handleSend(message)
+      : actions.handleEmptyString();
   };
 
   return (

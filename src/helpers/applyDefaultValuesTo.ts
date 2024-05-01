@@ -14,7 +14,6 @@ const applyDefaultValueTo = (stylesConfig: StylesConfig) => {
     logoHeight: "100px",
     logoWidth: "100px",
     name: "OpenReactBot",
-    placeholder: "Type your message...",
     right: "20px",
     userImg: `${userIcon}`,
   };

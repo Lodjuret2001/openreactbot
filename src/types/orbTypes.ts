@@ -25,7 +25,6 @@ export type StylesConfig = {
   logoHeight?: string;
   logoWidth?: string;
   name?: string;
-  placeholder?: string;
   right?: string;
   userImg?: string;
 };

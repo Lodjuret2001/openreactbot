@@ -7,6 +7,8 @@
   --orb-pink: #ffa1ac;
 }
 
+/*-----MAIN CONTAINER CSS-------*/
+
 .react-chatbot-kit-main-container {
   position: fixed;
   bottom: 30px;
@@ -30,23 +32,6 @@
   align-items: center;
 }
 
-.react-chatbot-kit-close-btn {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 0;
-  padding: 0;
-  width: 25px;
-  height: 25px;
-  color: rgb(134, 134, 134);
-  border-radius: 0;
-  z-index: 100;
-}
-
-.react-chatbot-kit-close-btn:hover {
-  border: none;
-}
-
 .react-chatbot-kit-chat-header {
   background-color: var(--orb-light-purple);
   font-family: Arial;
@@ -63,6 +48,23 @@
   overflow-x: hidden;
   overflow-y: scroll;
   height: 400px;
+}
+
+.react-chatbot-kit-close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  width: 25px;
+  height: 25px;
+  color: rgb(134, 134, 134);
+  border-radius: 0;
+  z-index: 100;
+}
+
+.react-chatbot-kit-close-btn:hover {
+  border: none;
 }
 
 /*------INPUT FORM CSS------*/
@@ -221,7 +223,7 @@
 .chatbot-loader-container {
   /*The background color of the loader is inherited from .react-chatbot-kit-chat-bot-message*/
   display: flex;
-  width: 80%;
+  width: 90%;
   justify-content: center;
 }
 

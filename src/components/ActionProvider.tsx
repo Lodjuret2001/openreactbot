@@ -50,12 +50,27 @@ const ActionProvider = ({
     handleChatBot();
   };
 
+  const handleEmptyString = () => {
+    const sorryMessage = createChatBotMessage(
+      "Sorry I didnt understand that!",
+      { loading: true }
+    );
+
+    setState((prev) => {
+      return {
+        ...prev,
+        messages: [...prev.messages, sorryMessage],
+      };
+    });
+  };
+
   return (
     <div>
       {React.Children.map(children, (child) => {
         return React.cloneElement(child, {
           actions: {
             handleSend,
+            handleEmptyString,
           },
         });
       })}
