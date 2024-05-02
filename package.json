@@ -5,7 +5,7 @@
     "url": "https://github.com/Lodjuret2001"
   },
   "name": "openreactbot",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Customizable OpenAI chatbot for react",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -19,9 +19,6 @@
   "repository": {
     "url": "git+https://github.com/Lodjuret2001/openreactbot.git"
   },
-  "files": [
-    "./dist"
-  ],
   "keywords": [
     "openreactbot",
     "chat",
