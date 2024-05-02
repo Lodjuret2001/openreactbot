@@ -31,5 +31,5 @@ module.exports = {
       },
     ],
   },
-  externals: ["react", "openai", "react-chatbot-kit", nodeExternals()],
+  externals: ["react", nodeExternals()],
 };
