@@ -1,9 +1,9 @@
 import OpenAI from "openai";
 import IConfig from "react-chatbot-kit/build/src/interfaces/IConfig";
-import ChatBotHeader from "../components/ChatBotHeader.jsx";
-import UserAvatar from "../components/UserAvatar.jsx";
-import BotAvatar from "../components/BotAvatar.jsx";
-import { AIConfig, OpenAIMessage } from "../types/orbTypes.js";
+import ChatBotHeader from "../components/ChatBotHeader";
+import UserAvatar from "../components/UserAvatar";
+import BotAvatar from "../components/BotAvatar";
+import { AIConfig, OpenAIMessage } from "../types/orbTypes";
 import { createChatBotMessage } from "react-chatbot-kit";
 
 const createRckConfig = (

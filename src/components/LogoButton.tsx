@@ -1,3 +1,4 @@
+import React from "react";
 import { StylesConfig } from "../types/orbTypes";
 
 const LogoButton = ({ styles, handleSetIsOpen }: Props) => {

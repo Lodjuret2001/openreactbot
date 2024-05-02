@@ -1,3 +1,5 @@
+import React from "react";
+
 const BotAvatar = (chatAvatar: string) => {
   return (
     <div className="react-chatbot-kit-chat-bot-avatar-container">

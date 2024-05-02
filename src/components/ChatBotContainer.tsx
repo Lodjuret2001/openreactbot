@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 
 const ChatBotMainContainer = ({ children }: Props) => {
   return <div className="react-chatbot-kit-main-container">{children}</div>;

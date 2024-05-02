@@ -5,15 +5,16 @@
     "url": "https://github.com/Lodjuret2001"
   },
   "name": "openreactbot",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Customizable OpenAI chatbot for react",
-  "main": "dist/OpenReactBot.jsx",
-  "types": "dist/OpenReactBot.d.ts",
+  "main": "build/index.js",
+  "types": "build/src/index.d.ts",
   "type": "module",
   "homepage": "https://github.com/Lodjuret2001/openreactbot#readme",
   "license": "MIT",
   "scripts": {
-    "build": "tsc"
+    "build": "webpack --mode=production",
+    "tsc": "tsc"
   },
   "repository": {
     "url": "git+https://github.com/Lodjuret2001/openreactbot.git"
@@ -49,7 +50,12 @@
   "devDependencies": {
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.0",
-    "typescript": "^5.4.5"
+    "file-loader": "^6.2.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.4.5",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-node-externals": "^3.0.0"
   },
   "publishConfig": {
     "access": "public"

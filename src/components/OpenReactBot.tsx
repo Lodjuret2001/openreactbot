@@ -1,15 +1,14 @@
-import "./styles/openreactbot.css";
-import applyDefaultValueTo from "./helpers/applyDefaultValuesTo.js";
-import initializeOpenAI from "./utils/initializeOpenAI.js";
-import createRckConfig from "./utils/createRckConfig.js";
+import applyDefaultValueTo from "../helpers/applyDefaultValuesTo";
+import initializeOpenAI from "../utils/initializeOpenAI";
+import createRckConfig from "../utils/createRckConfig";
 import Chatbot from "react-chatbot-kit";
-import ChatBotMainContainer from "./components/ChatBotContainer.jsx";
-import CloseChatBot from "./components/CloseChatBot.jsx";
-import ActionProvider from "./components/ActionProvider.jsx";
-import MessageParser from "./components/MessageParser.jsx";
-import LogoButton from "./components/LogoButton.jsx";
-import { useState } from "react";
-import { OpenReactBotProps } from "./types/orbTypes.js";
+import ChatBotMainContainer from "./ChatBotContainer";
+import CloseChatBot from "./CloseChatBot";
+import ActionProvider from "./ActionProvider";
+import MessageParser from "./MessageParser";
+import LogoButton from "./LogoButton";
+import React, { useState } from "react";
+import { OpenReactBotProps } from "../types/orbTypes";
 
 const OpenReactBot = ({
   API_KEY,

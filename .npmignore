@@ -1,5 +1,6 @@
 node_modules/
-src/
 .gitignore
+src/
 package-lock.json
 tsconfig.json
+webpack.config.js

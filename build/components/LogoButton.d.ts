@@ -1,6 +1,6 @@
-/// <reference types="react" />
+import React from "react";
 import { StylesConfig } from "../types/orbTypes";
-declare const LogoButton: ({ styles, handleSetIsOpen }: Props) => import("react").JSX.Element;
+declare const LogoButton: ({ styles, handleSetIsOpen }: Props) => React.JSX.Element;
 type Props = {
     styles: StylesConfig;
     handleSetIsOpen: () => void;
