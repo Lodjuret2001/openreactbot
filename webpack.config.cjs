@@ -5,14 +5,15 @@ module.exports = {
   mode: "production",
   target: "node",
   output: {
-    publicPath: "/",
+    module: true,
     path: __dirname + "/build",
     filename: "index.js",
-    library: "openreactbot",
     clean: true,
+    libraryTarget: "module",
+    chunkFormat: "module",
   },
   resolve: {
-    extensions: [".tsx", ".jsx", ".js", ".ts"],
+    extensions: [".tsx", ".ts"],
   },
   module: {
     rules: [
@@ -23,13 +24,12 @@ module.exports = {
       },
       {
         test: /\.png$/,
-        loader: "file-loader",
-        exclude: /node_modules/,
-        options: {
-          outputPath: "assets",
-        },
+        loader: "url-loader",
       },
     ],
   },
-  externals: ["react", nodeExternals()],
+  externals: ["react", "openai", "react-chatbot-kit", nodeExternals()],
+  experiments: {
+    outputModule: true,
+  },
 };
