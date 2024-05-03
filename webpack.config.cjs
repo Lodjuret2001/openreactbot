@@ -12,9 +12,13 @@ module.exports = {
     libraryTarget: "module",
     chunkFormat: "module",
   },
+  experiments: {
+    outputModule: true,
+  },
   resolve: {
     extensions: [".tsx", ".ts"],
   },
+  externals: ["react", "openai", "react-chatbot-kit", nodeExternals()],
   module: {
     rules: [
       {
@@ -27,9 +31,5 @@ module.exports = {
         loader: "url-loader",
       },
     ],
-  },
-  externals: ["react", "openai", "react-chatbot-kit", nodeExternals()],
-  experiments: {
-    outputModule: true,
   },
 };

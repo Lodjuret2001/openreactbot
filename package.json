@@ -39,6 +39,12 @@
     "social",
     "talk"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "email": "minecraftpontus@gmail.com"
+  },
   "dependencies": {
     "openai": "^4.38.2",
     "react-chatbot-kit": "^2.2.2"
@@ -56,11 +62,5 @@
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4",
     "webpack-node-externals": "^3.0.0"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "bugs": {
-    "email": "minecraftpontus@gmail.com"
   }
 }
