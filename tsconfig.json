@@ -6,24 +6,19 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "declaration": true,
-    "outDir": "dist",
+    "emitDeclarationOnly": true,
+    "outDir": "types",
 
     /* Bundler mode */
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": false,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
+    "allowImportingTsExtensions": true,
+    "isolatedModules": false,
     "noEmit": false,
-    "jsx": "preserve",
-    "allowJs": true,
-    "checkJs": true,
+    "jsx": "react",
 
     /* Linting */
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["**/node_modules/**/*", "dist", "**/*.mjs"]
 }

@@ -1,8 +1,6 @@
-type Props = {
-  handleSetIsOpen: () => void;
-};
+import React from "react";
 
-const CloseChatBot = ({ handleSetIsOpen }: Props) => {
+const CloseChatBot = ({ handleSetIsOpen }: CloseChatBotProps) => {
   const closeChatBotStyles: React.CSSProperties = {
     position: "absolute",
     top: "10px",
@@ -14,10 +12,18 @@ const CloseChatBot = ({ handleSetIsOpen }: Props) => {
   };
 
   return (
-    <button className="orb-close--chatbot" style={closeChatBotStyles} onClick={() => handleSetIsOpen()}>
+    <button
+      className="orb-close--chatbot"
+      style={closeChatBotStyles}
+      onClick={() => handleSetIsOpen()}
+    >
       X
     </button>
   );
+};
+
+export type CloseChatBotProps = {
+  handleSetIsOpen: () => void;
 };
 
 export default CloseChatBot;

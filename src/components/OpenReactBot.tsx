@@ -1,11 +1,10 @@
-import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
-import { useState } from "react";
-import useOpenAI from "./hooks/useOpenAI.js";
-import applyDefaultValueTo from "./utils/applyDefaultValuesTo.js";
-import { OpenReactBotProps, ChatBotMessage } from "./types/orbTypes.js";
-import ChatBotContainer from "./components/ChatBotContainer.jsx";
-import CloseChatBot from "./components/CloseChatBot.jsx";
-import LogoButton from "./components/LogoButton.jsx";
+import React, { useState } from "react";
+import useOpenAI from "../hooks/useOpenAI.js";
+import applyDefaultValueTo from "../utils/applyDefaultValuesTo.js";
+import ChatBotContainer from "./ChatBotContainer.jsx";
+import CloseChatBot from "./CloseChatBot.jsx";
+import LogoButton from "./LogoButton.jsx";
+import { OpenReactBotProps, ChatBotMessage } from "../types/orbTypes.js";
 import {
   Avatar,
   MainContainer,
@@ -14,7 +13,8 @@ import {
   MessageInput,
   Message,
   TypingIndicator,
-} from "@chatscope/chat-ui-kit-react/src/types/index.js";
+} from "@chatscope/chat-ui-kit-react";
+import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 
 const OpenReactBot = ({
   API_KEY,
