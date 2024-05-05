@@ -1,10 +1,7 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 import { StylesConfig } from "../types/orbTypes";
-type Props = {
-  styles: StylesConfig;
-  children: ReactNode;
-};
-const ChatBotContainer = ({ styles, children }: Props) => {
+
+const ChatBotContainer = ({ styles, children }: ChatBotContainerProps) => {
   const { bottom, left, right, height, width } = styles;
 
   const chatBotContainerStyles: React.CSSProperties = {
@@ -17,6 +14,11 @@ const ChatBotContainer = ({ styles, children }: Props) => {
   };
 
   return <div style={chatBotContainerStyles}>{children}</div>;
+};
+
+export type ChatBotContainerProps = {
+  styles: StylesConfig;
+  children: ReactNode;
 };
 
 export default ChatBotContainer;

@@ -5,16 +5,18 @@
     "url": "https://github.com/Lodjuret2001"
   },
   "name": "openreactbot",
-  "version": "1.0.5",
+  "version": "1.1.7",
   "description": "Customizable OpenAI chatbot for react",
-  "main": "dist/OpenReactBot.jsx",
-  "types": "dist/OpenReactBot.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
   "homepage": "https://github.com/Lodjuret2001/openreactbot#readme",
-  "readme": "./README.md",
   "license": "MIT",
   "scripts": {
-    "build": "tsc"
+    "build:clean": "rimraf dist",
+    "build:rollup": "rollup -c",
+    "build": "npm run build:clean && npm run build:rollup"
   },
   "repository": {
     "url": "git+https://github.com/Lodjuret2001/openreactbot.git"
@@ -42,13 +44,24 @@
   "dependencies": {
     "@chatscope/chat-ui-kit-react": "^2.0.3",
     "@chatscope/chat-ui-kit-styles": "^1.4.0",
-    "@types/react": "^18.2.79",
-    "openai": "^4.38.2",
-    "prop-types": "^15.7.2",
+    "openai": "^4.38.2"
+  },
+  "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.24.1",
+    "@babel/preset-typescript": "^7.24.1",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-image": "^3.0.3",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "rimraf": "^5.0.5",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
     "typescript": "^5.4.5"
   },
   "publishConfig": {
